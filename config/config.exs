@@ -7,6 +7,9 @@
 # all use the same configuration file. If you want different
 # configurations or dependencies per app, it is best to
 # move said applications out of the umbrella.
-import Config
+use Mix.Config
 
 config :awesome_list, github_access_token: System.get_env("FUNB_GITHUB_TOKEN")
+
+
+import_config "#{Mix.env()}.exs"
