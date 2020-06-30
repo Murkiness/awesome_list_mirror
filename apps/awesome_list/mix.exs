@@ -3,6 +3,7 @@ defmodule AwesomeList.MixProject do
 
   def project do
     [
+      elixirc_paths: elixirc_paths(Mix.env()),
       app: :awesome_list,
       version: "0.1.0",
       build_path: "../../_build",
@@ -28,6 +29,10 @@ defmodule AwesomeList.MixProject do
       {:httpoison, "~> 1.6"},
       {:jason, "~> 1.2"},
       {:private, "> 0.0.0"},
+      {:mox, "~> 0.5.2", only: [:test]},
     ]
   end
+
+  defp elixirc_paths(:test), do: ["lib", "test/support"]
+  defp elixirc_paths(_), do: ["lib"]
 end
