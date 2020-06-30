@@ -1,0 +1,6 @@
+Actors
+*Libraries and tools for working with actors and such.*
+
+* [dflow](https://github.com/dalmatinerdb/dflow) - Pipelined flow processing engine.
+* [exactor2](https://github.com/asas7791/) - Broken link.
+* [exactor](https://github.com/sasa1977/exactor) - Helpers for easier implementation of actors in Elixir.
