@@ -27,6 +27,7 @@ defmodule AwesomeList.MixProject do
     [
       {:httpoison, "~> 1.6"},
       {:jason, "~> 1.2"},
+      {:private, "> 0.0.0"},
     ]
   end
 end
