@@ -17,6 +17,7 @@ defmodule AwesomeList.DataFetcher do
         |> put_data_to_storage()
 
         Logger.info("Data is updated")
+        Storage.close()
     end
 
     @spec fetch_details_data_for_all_sections([Section.t()]) :: [Section.t()]

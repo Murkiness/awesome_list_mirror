@@ -18,7 +18,6 @@ defmodule AwesomeList.Scheduler do
         {:noreply, state}
     end
 
-
     def schedule_initial_data_fetch() do
         Process.send_after(self(), :perform, 1000)
     end
