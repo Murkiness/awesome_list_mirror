@@ -1,5 +1,6 @@
 defmodule AwesomeList.DataFetcher do
     use Private
+    require Logger
 
     alias AwesomeList.Parsing.{Parser, Section, SectionItem}
     alias AwesomeList.Storage
@@ -8,10 +9,14 @@ defmodule AwesomeList.DataFetcher do
     @timeout 100000
 
     def gather_data() do
+        Logger.info("Starting to gather data")
+
         @github_data_provider.get_awesome_readme()
         |> Parser.parse_section_structures()
         |> fetch_details_data_for_all_sections()
         |> put_data_to_storage()
+
+        Logger.info("Data is updated")
     end
 
     @spec fetch_details_data_for_all_sections([Section.t()]) :: [Section.t()]
@@ -24,6 +29,8 @@ defmodule AwesomeList.DataFetcher do
     private do
         @spec fetch_details_for_section(Section.t()) :: Section.t()
         defp fetch_details_for_section(section) do
+            Logger.info("Fetching details for #{section.description}")
+
             upd_items = section.items
             |> Enum.map(&Task.async(fn -> fetch_repo_details(&1) end))
             |> Enum.map(fn task -> Task.await(task, @timeout) end)

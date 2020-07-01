@@ -1,10 +1,13 @@
 defmodule AwesomeList.Parsing.Parser do
     use Private
+    require Logger
 
     alias AwesomeList.Parsing.{Section, SectionItem}
 
     @spec parse_section_structures(String.t()) :: [Section.t()]
     def parse_section_structures(raw_response) do
+        Logger.info("Parsing readme")
+
         raw_response
         |> parse_section_names
         |> parse_structures(raw_response)

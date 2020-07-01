@@ -1,10 +1,13 @@
 defmodule AwesomeList.GithubDataProvider do
+    require Logger
  
     @awesome_list_url "https://raw.githubusercontent.com/h4cc/awesome-elixir/master/README.md"
     @repo_endpoint "https://api.github.com/repos/"
     @github_token Application.get_env(:awesome_list, :github_access_token)
 
     def get_awesome_readme() do
+        Logger.info("getting readme file's content")
+
         @awesome_list_url
         |> HTTPoison.get([], follow_redirect: true)
         |> handle_response()
