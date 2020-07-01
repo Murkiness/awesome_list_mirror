@@ -1,0 +1,28 @@
+<section class="phx-hero">
+  <h1>This is a mirror of Elixir awesome list <a href="https://github.com/h4cc/awesome-elixir">h4cc/awesome-elixir</a></h1>
+</section>
+
+<section>
+  <h2>Contents</h2>
+  <ul style="list-style: square">
+    <%= for section <- @data do %>
+      <li> <%=link_for_section(section.title) %> </li>
+    <% end %>
+  </ul>
+  
+  <ul style="list-style: none;">
+    <%= for section <- @data do %>
+      <li>
+        <%=section_title(section.title)%>
+        <h3> <%=section.description%> </h3>
+        <ul>
+          <%= for item <- section.items do %>
+            <li>
+              <%=make_short_link(item.link)%> &#9733; <%=item.stars%> &#128198; <%=item.days_from_last_commit %> &#8212; <%=item.description%>
+            </li>
+          <% end %>
+        </ul>
+      </li>
+    <% end %>
+  </ul>
+</section>

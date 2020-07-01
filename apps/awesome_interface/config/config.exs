@@ -1,16 +1,13 @@
-# This file is responsible for configuring your umbrella
-# and **all applications** and their dependencies with the
-# help of the Config module.
+# This file is responsible for configuring your application
+# and its dependencies with the aid of the Mix.Config module.
 #
-# Note that all applications in your umbrella share the
-# same configuration and dependencies, which is why they
-# all use the same configuration file. If you want different
-# configurations or dependencies per app, it is best to
-# move said applications out of the umbrella.
+# This configuration file is loaded before any dependency and
+# is restricted to this project.
+
+# General application configuration
 use Mix.Config
 
-config :awesome_list, github_access_token: System.get_env("FUNB_GITHUB_TOKEN")
-
+# Configures the endpoint
 config :awesome_interface, AwesomeInterfaceWeb.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "BE95Z16TwaOgSoR98ONjHwryIHsJGga/pjgUUor2BtVQ62QmoMt0OW7q3H7NlcUG",
@@ -26,4 +23,6 @@ config :logger, :console,
 # Use Jason for JSON parsing in Phoenix
 config :phoenix, :json_library, Jason
 
+# Import environment specific config. This must remain at the bottom
+# of this file so it overrides the configuration defined above.
 import_config "#{Mix.env()}.exs"
