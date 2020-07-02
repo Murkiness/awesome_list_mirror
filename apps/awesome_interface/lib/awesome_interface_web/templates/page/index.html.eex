@@ -1,5 +1,14 @@
 <section class="phx-hero">
   <h1>This is a mirror of Elixir awesome list <a href="https://github.com/h4cc/awesome-elixir">h4cc/awesome-elixir</a></h1>
+
+  <nav>
+    <ul >
+      <li><a href="/">All</a></li>
+      <li><a href="/?min_stars=50">≥50&#9733;</a></li>
+      <li><a href="/?min_stars=500">≥500&#9733;</a></li>
+      <li><a href="/?min_stars=1000">≥1000&#9733;</a></li>
+    </ul>
+  </nav>
 </section>
 
 <section>

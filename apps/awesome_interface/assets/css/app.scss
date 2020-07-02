@@ -29,3 +29,17 @@
 .alert:empty {
   display: none;
 }
+
+.alert:empty {
+  display: none; }
+
+nav ul {
+  list-style: none;
+  padding: 0;
+}
+  
+nav ul li {
+  display: inline-block;
+  margin-right: 1em;
+  margin-bottom: .25em;
+}
